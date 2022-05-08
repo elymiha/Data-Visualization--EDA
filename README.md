@@ -1,7 +1,6 @@
 # Data-Visualization--EDA
 Food production impact evaluation and rapresentation
 
-
 Our world population is projected to grow from 7.3 billion today to 9.7 billion in the year 2050. To make things even more complicated, the Earth's climate is changing and is being affected by agriculture. As the world population has expanded and enriched, the demand for food, energy and water has seen a rapid increase.
 
 The above described trends would have more and more impact on the quality and duration of our life. Therefore, we have to urgently tackle these issues in order to find solutions for:
