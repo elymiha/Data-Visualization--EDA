@@ -1,0 +1,43 @@
+# Step-by-Step Guide
+
+1. Split Your Code into Separate Notebooks
+
+First, identify logical sections of your code that can be separated into different notebooks. For example, you might have:
+
+Notebook 1: Data loading and preprocessing
+Notebook 2: Feature engineering
+Notebook 3: Model training
+Notebook 4: Model evaluation
+
+2. Save Each Section as a Separate Notebook
+
+Create new Jupyter Notebooks for each section and copy the relevant code into these notebooks. Save them with appropriate names, such as:
+
+data_loading.ipynb
+feature_engineering.ipynb
+model_training.ipynb
+model_evaluation.ipynb
+
+3. Convert Notebooks to Python Scripts
+
+To import one notebook into another, you need to convert them to Python scripts. You can do this using the nbconvert tool.
+
+Run the following command in your terminal for each notebook:
+
+bash
+
+jupyter nbconvert --to script data_loading.ipynb
+jupyter nbconvert --to script feature_engineering.ipynb
+jupyter nbconvert --to script model_training.ipynb
+jupyter nbconvert --to script model_evaluation.ipynb
+
+This will create Python scripts (.py files) for each notebook:
+
+data_loading.py
+feature_engineering.py
+model_training.py
+model_evaluation.py
+  
+4. Import Python Scripts in Notebooks
+
+Now, you can import these Python scripts into your notebooks. Open the notebook that needs to import the code from another notebook and add an import statement at the beginning.
