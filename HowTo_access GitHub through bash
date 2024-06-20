@@ -1,0 +1,98 @@
+Authenticating on GitHub is essential for managing your repositories securely and accessing various features. GitHub offers several authentication methods, including using a password, SSH keys, personal access tokens, and OAuth. Here's a step-by-step guide for each method:
+
+1. Password Authentication (Deprecated)
+
+Note: GitHub has deprecated password authentication for the Git command line. 
+Instead, you should use personal access tokens or SSH keys.
+
+2. Personal Access Tokens (PAT)
+Personal Access Tokens are a more secure alternative to passwords. They are required for Git operations and accessing the GitHub API.
+
+### Steps to Create a Personal Access Token ###
+
+1. Log in to GitHub:
+
+Go to GitHub and log in to your account.
+
+Navigate to Settings:
+  Click on your profile picture in the top right corner.
+  Select "Settings" from the dropdown menu.
+  Access Developer Settings:
+      Scroll down and select "Developer settings" from the left sidebar.
+      Generate New Token:
+          Click on "Personal access tokens".
+          Click on "Generate new token".
+          Configure Token:
+              Give your token a descriptive name.
+              Select the scopes or permissions you need (e.g., repo for full control of private repositories).
+              Click on "Generate token".
+          Save Token:
+              Copy the token and save it in a secure place. You won’t be able to see it again once you leave the page.
+
+Using Personal Access Tokens
+  Git Command Line: When performing Git operations, use the token as your password.
+
+      git clone https://github.com/username/repo.git
+      Username: your_username
+      Password: your_personal_access_token
+  
+  Git Configuration:
+      You can also store your credentials using Git’s credential helper.
+
+      git config --global credential.helper store
+
+Using SSH Key Authentication
+  SSH keys provide a secure way to authenticate without using passwords.
+
+  Steps to Create an SSH Key
+    Generate SSH Key:
+      Open your terminal and run:
+
+      ssh-keygen -t ed25519 -C "your_email@example.com"
+
+      OR
+
+      ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
+      Follow the Prompts:
+        Save the key in the default location (usually ~/.ssh/id_ed25519 or ~/.ssh/id_rsa).
+        Enter a passphrase for additional security (optional but recommended).
+        Add SSH Key to SSH Agent:
+
+          Start the SSH agent: eval "$(ssh-agent -s)"
+
+          Add your SSH private key to the SSH agent: ssh-add ~/.ssh/id_ed25519
+
+          Add SSH Key to GitHub:
+
+            cat ~/.ssh/id_ed25519.pub | pbcopy   # macOS
+            cat ~/.ssh/id_ed25519.pub | xclip    # Linux
+            type ~/.ssh/id_ed25519.pub | clip    # Windows
+
+          Log in to GitHub and go to Settings.
+          Navigate to "SSH and GPG keys".
+          Click on "New SSH key".
+          Paste your SSH key and save.
+
+
+Using SSH Keys:
+    Clone Repository: git clone git@github.com:username/repo.git
+
+OAuth Authentication
+OAuth allows you to authorize third-party applications to access your GitHub account.
+
+Steps to Authorize an Application
+    Log in to GitHub.
+    Navigate to Settings:
+      Click on your profile picture in the top right corner.
+      Select "Settings".
+      Access Developer Settings:
+      Scroll down and select "Developer settings".
+        OAuth Apps:
+        Click on "OAuth Apps".
+        Click on "New OAuth App" and fill in the required details.
+        Register the application.
+        Authorize the Application:
+
+The application will provide you with a URL to authorize it.
+Visit the URL, log in to GitHub, and grant the required permissions.
